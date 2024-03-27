@@ -61,19 +61,21 @@ export function setupAudio() {
   const hardCompressor = audioContext.createDynamicsCompressor()
   const output = audioContext.createGain()
 
-  reverb.wet.value = 0.2
-  reverb.dry.value = 0.8
+  reverb.wet.value = 0
+  reverb.dry.value = 0.5
+
   softCompressor.attack.value = 0.05
   softCompressor.knee.value = 10
   softCompressor.ratio.value = 3
   softCompressor.release.value = 0.1
   softCompressor.threshold.value = -15
+
   hardCompressor.attack.value = 0.003
   hardCompressor.knee.value = 5
   hardCompressor.ratio.value = 15
   hardCompressor.release.value = 0.01
   hardCompressor.threshold.value = -6
-  output.gain.value = 0.7
+  output.gain.value = 0.5
 
   input.connect(analyser).connect(reverb.input)
   reverb.output.connect(softCompressor).connect(hardCompressor).connect(output)

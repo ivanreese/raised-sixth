@@ -49,7 +49,7 @@ export default class Orchestra {
     // this.drumFrac = Math.min(maxDrumFrac, this.velocity / 4, Engine.count / 10000)
 
     // Update the orchestra's velocity
-    this.accel = 1.5 //math.renormalized(mouse.y, window.innerHeight, 0, 0.9, 1.1)
+    this.accel = 1.1 //math.renormalized(mouse.y, window.innerHeight, 0, 0.9, 1.1)
     this.velocity = Math.max(0, this.velocity * this.accel ** Engine.dt)
 
     const exp = Math.round(Math.log2(Orchestra.velocity))

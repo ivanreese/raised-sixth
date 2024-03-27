@@ -34,9 +34,10 @@ export default class Player extends Musician {
     super(samples)
 
     // this.melody = math.arrRand(melodies)
-    this.melody = melodies[(6 + this.index) % melodies.length]
+    // this.melody = melodies[(6 + this.index) % melodies.length]
+    this.melody = melodies[2]
 
-    this.transposition = [0.5, 1, 2][this.index % 3]
+    this.transposition = [0.25, 0.5, 1, 2, 4][this.index % 5]
 
     this.exp = exp // should always be an integer, representing 2^x
     this.life = (sync * 2 ** exp) % 1 // life is what we use to sync different musicians
@@ -94,14 +95,15 @@ export default class Player extends Musician {
       this.currentNote = nextNote
 
       // const pitch = Player.pythagorean(this.currentNote.pitch) * this.transposition * Orchestra.transposition
-      const pitch = 2 ** ((this.detune * this.currentNote.pitch) / 12) * this.transposition * Orchestra.transposition
+      // const pitch = 2 ** ((this.detune * this.currentNote.pitch) / 12) * this.transposition * Orchestra.transposition
+      const pitch = 4
 
       this.nextNoteIndex++
 
       this.lastNoteDist = Math.min(performance.now() - this.lastNoteTime, this.lastNoteDist)
       this.lastNoteTime = performance.now()
 
-      this.volume = math.clip(math.renormalized(this.lastNoteDist, this.fastest, this.fastest + 100, 0, 1))
+      this.volume = math.clip(math.renormalized(this.lastNoteDist, this.fastest, this.fastest + 200, 0, 1))
       super.play(pitch)
 
       if (this.lastNoteDist < this.fastest) {

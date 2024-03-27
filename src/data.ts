@@ -142,12 +142,17 @@ export const melodies: Melody[] = [
       { pitch: -14 + 12, volume: 70, position: 23 },
     ],
   },
-  // {
-  //   name: "Standing Still",
-  //   beatsPerBar: 2,
-  //   barsPerMeasure: 24,
-  //   notes: [{ pitch: -21 + 24, volume: 66, position: 1 }],
-  // },
+  {
+    name: "Standing Still",
+    beatsPerBar: 1,
+    barsPerMeasure: 24,
+    notes: [
+      { pitch: -21 + 24, volume: 66, position: 0.25 },
+      { pitch: -21 + 24, volume: 66, position: 0.5 },
+      { pitch: -21 + 24, volume: 66, position: 0.75 },
+      { pitch: -21 + 24, volume: 66, position: 1 },
+    ],
+  },
   // {
   //   name: "Very Still",
   //   beatsPerBar: 12,

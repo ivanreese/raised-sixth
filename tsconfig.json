@@ -3,6 +3,8 @@
     "lib": [
       "ES2023",
       "DOM",
-    ]
+    ],
+    "module": "ESNext",
+    "target": "ESNext"
   }
 }

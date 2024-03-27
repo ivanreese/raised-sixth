@@ -1,9 +1,10 @@
 import Orchestra from "./orchestra.js"
 import * as Engine from "./engine.js"
 import * as Audio from "./audio.js"
+import Musician from "./musician.js"
 
 const preloadElm = document.querySelector(".preload") as HTMLElement
-const canvas = document.querySelector("canvas")
+const canvas = document.querySelector("canvas:nth-of-type(2)") as HTMLCanvasElement
 const context = canvas.getContext("2d") as CanvasRenderingContext2D
 
 const mouse = {
@@ -22,12 +23,6 @@ window.addEventListener("mousemove", (e) => {
 })
 
 function init() {
-  context.font = "12px sans-serif"
-  context.textAlign = "center"
-  context.textBaseline = "middle"
-  context.lineCap = "round"
-  context.lineJoin = "round"
-
   Audio.setupAudio()
   preloadElm.remove()
   resize()
@@ -69,5 +64,14 @@ function resize() {
   canvas.height = dpi * window.innerHeight
   context.resetTransform()
   context.scale(dpi, dpi)
+  initFont() // Changing canvas width seems to clear this state
   render()
+}
+
+function initFont() {
+  context.font = "12px sans-serif"
+  context.textAlign = "center"
+  context.textBaseline = "middle"
+  context.lineCap = "round"
+  context.lineJoin = "round"
 }

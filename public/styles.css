@@ -15,8 +15,6 @@ html {
   font-family: sans-serif;
   font-size: 12px;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   overflow: hidden;
 }
@@ -40,10 +38,4 @@ canvas {
   width: 100%;
   text-align: center;
   color: white;
-  cursor: pointer;
-}
-
-.buttons {
-  position: absolute;
-  top: calc(50% - 0.8em);
 }
