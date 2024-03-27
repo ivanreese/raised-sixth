@@ -32,12 +32,13 @@ export default class Player extends Musician {
 
   constructor(sync: number, exp: number) {
     super(samples)
+    // super(["MaternalXylo"])
 
-    // this.melody = math.arrRand(melodies)
+    this.melody = math.arrRand(melodies)
     // this.melody = melodies[(6 + this.index) % melodies.length]
-    this.melody = melodies[2]
+    // this.melody = melodies[2]
 
-    this.transposition = [0.25, 0.5, 1, 2, 4][this.index % 5]
+    this.transposition = [0.5, 1, 2][this.index % 3]
 
     this.exp = exp // should always be an integer, representing 2^x
     this.life = (sync * 2 ** exp) % 1 // life is what we use to sync different musicians
@@ -95,8 +96,8 @@ export default class Player extends Musician {
       this.currentNote = nextNote
 
       // const pitch = Player.pythagorean(this.currentNote.pitch) * this.transposition * Orchestra.transposition
-      // const pitch = 2 ** ((this.detune * this.currentNote.pitch) / 12) * this.transposition * Orchestra.transposition
-      const pitch = 4
+      const pitch = 2 ** ((this.detune * this.currentNote.pitch) / 12) * this.transposition * Orchestra.transposition
+      // const pitch = 4
 
       this.nextNoteIndex++
 

@@ -56,13 +56,13 @@ export function setupAudio() {
 
   const input = new GainNode(audioContext, { gain: 1 })
   const analyser = audioContext.createAnalyser()
-  const reverb = makeReverb(2.5, 3.5, false)
+  const reverb = makeReverb(.5, 3, false)
   const softCompressor = audioContext.createDynamicsCompressor()
   const hardCompressor = audioContext.createDynamicsCompressor()
   const output = audioContext.createGain()
 
-  reverb.wet.value = 0
-  reverb.dry.value = 0.5
+  reverb.wet.value = 0.2
+  reverb.dry.value = 0.8
 
   softCompressor.attack.value = 0.05
   softCompressor.knee.value = 10
